@@ -1,0 +1,91 @@
+﻿@model asp.netMVCwebApp.Model.User
+
+@{
+    ViewBag.Title = "Register » ASP.NET MVC";
+}
+<div class="container">
+
+    <h3 class="text-center"><b>Register</b></h3>
+    <div class="col-md-12">
+        <table class="table table-striped table-responsive">
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td>
+                    <input type="text" class="form-control input-sm" name="Email" id="Email" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>:</td>
+                <td>
+                    <input type="text" class="form-control input-sm" name="Password" id="Password" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>Full Name</td>
+                <td>:</td>
+                <td>
+                    <input type="text" class="form-control input-sm" name="FullName" id="FullName" required="required" />
+                </td>
+            </tr>
+            <tr>
+                <td>Telephone</td>
+                <td>:</td>
+                <td>
+                    <input type="text" class="form-control input-sm" name="Phone" id="Phone" required="required" />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Is Active?</td>
+                <td>:</td>
+                <td>
+                    @Html.CheckBox("IsActive", new { @class = "" })
+            </tr>
+
+            <tr>
+        </table>
+    </div>
+    <button type="submit" class="btn btn-success btn-block" onclick="createUser()"><i class="fa fa-plus"></i> Register</button>
+
+</div>
+
+<script type="text/javascript">
+
+    function createUser() {
+
+        var IsActive = document.getElementById("IsActive").checked;
+
+        var postData = {
+            Email: $("#Email").val(),
+            Password: $("#Password").val(),
+            FullName: $("#FullName").val(),
+            Phone: $("#Phone").val(),
+            IsActive: IsActive,
+        };
+
+        var postURL = "/Home/Index";
+
+        $.ajax({
+            type: "POST",
+            url: postURL,
+            data: JSON.stringify(postData),
+            contentType: 'application/json',
+            dataType: "json", //
+            success: function (result) { //When the operation is successful, the following is done.
+
+                if (result.success) {
+                    window.location = "/Home/Index";
+                    alert("User registered successfully");
+                } else {
+                    alert("Error : " + result.ErrorMessage);
+                }
+            },
+            error: function (error) {
+                alert("Error" + error.error);
+            }
+        });
+
+    }//End function
+</script>
