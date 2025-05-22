@@ -55,7 +55,7 @@ Benefits:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/asp.net-mvc-generic-repository-project.git
+   git clone https://github.com/oguzhansaritas/asp.net-mvc-generic-repository-project.git
    ```
 
 2. Open the `.sln` file in Visual Studio.
@@ -72,9 +72,6 @@ Benefits:
 - Perform basic CRUD operations through the UI
 - Services handle business logic and communicate with repositories
 
-## 📸 Screenshots
-
-_Add screenshots of key views if needed._
 
 ## 🙌 Contribution
 
@@ -86,4 +83,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 ## 📬 Contact
 
-Created by **[Your Name]** – reach me at [your.email@example.com] for any questions.
+Created by **OGUZHAN SARITAS** – reach me at info@oguzhansaritas.com for any questions.
